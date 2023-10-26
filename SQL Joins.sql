@@ -1,10 +1,9 @@
 /* joins: select all the computers from the products table:
 using the products table and the categories table, return the product name and the category name */
- SELECT P.Name AS ProductName, C.Name AS CategoryName
- FROM products as P
- INNER JOIN categories AS C 
- ON C.CategoryID = P.CategoryID
- WHERE C.NAME - "Computers";
+ SELECT products.Name, categories.Name 
+ FROM products 
+ INNER JOIN categories on categories.CategoryID = products.CategoryID 
+ WHERE categories.Name = "Computers";
  
  
 
@@ -19,7 +18,7 @@ WHERE reviews.Rating = 5;
 
 SELECT e.FirstName, e.LastName, Sum(s.Quantity) As Total
 From sales As s
-INNER JOIN employee AS e ON e.EmployeeID = s.EmployeeID
+INNER JOIN employees AS e ON e.EmployeeID = s.EmployeeID
 GROUP BY e.EmployeeID
 ORDER BY Total DESC
 LIMIT 2;
